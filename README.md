@@ -1,0 +1,2 @@
+# xprinter
+Impresion de etiquetas
