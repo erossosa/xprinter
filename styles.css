@@ -73,3 +73,13 @@ header {
     border-top: 1px solid #000;
     padding-top: 3mm;
 }
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+.etiqueta {
+    width: 100mm !important;
+    height: 150mm !important;
+}
