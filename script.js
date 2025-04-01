@@ -1,4 +1,12 @@
-
+const { jsPDF } = window.jspdf;
+const pdf = new jsPDF();
+// En script.js
+document.addEventListener('DOMContentLoaded', function() {
+    const generarBtn = document.getElementById('generarBtn');
+    generarBtn.addEventListener('click', function() {
+        // Lógica para actualizar la previsualización...
+    });
+});
 
 
 document.addEventListener('DOMContentLoaded', function() {
