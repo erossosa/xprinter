@@ -1,9 +1,15 @@
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Verificar carga de librerías
-    if (typeof html2canvas === 'undefined' || typeof jsPDF === 'undefined') {
-        alert("Error: No se cargaron las librerías html2canvas o jspdf.");
+    if (!window.html2canvas || !window.jspdf) {
+        alert("Error: Asegúrate de cargar html2canvas y jspdf.");
         return;
     }
+
+    // Resto del código...
+
 
     // Referencias a elementos del DOM
     const descargarBtn = document.getElementById('descargarBtn');
@@ -43,4 +49,5 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Error al descargar. Verifica la consola.");
         }
     });
+});
 });
