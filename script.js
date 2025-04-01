@@ -1,26 +1,46 @@
-    document.getElementById('generarBtn').addEventListener('click', function() {
-    // Actualizar previsualización
-    document.getElementById('previewNombre').textContent = document.getElementById('destinatario').value;
-    document.getElementById('previewCI').textContent = document.getElementById('ci').value;
-    document.getElementById('previewTelefono').textContent = document.getElementById('telefono').value;
-    document.getElementById('previewDireccion').textContent = document.getElementById('direccion').value;
-    document.getElementById('previewDepto').textContent = document.getElementById('departamento').value;
-    document.getElementById('previewAgencia').textContent = document.getElementById('agencia').value;
-});
-
-// Cargar logo
-document.getElementById('logoUpload').addEventListener('change', function(e) {
-    const logoContainer = document.getElementById('logoContainer');
-    logoContainer.innerHTML = '';
-    if (e.target.files[0]) {
-        const img = document.createElement('img');
-        img.src = URL.createObjectURL(e.target.files[0]);
-        img.style.maxWidth = '150px';
-        logoContainer.appendChild(img);
+document.addEventListener('DOMContentLoaded', function() {
+    // Verificar carga de librerías
+    if (typeof html2canvas === 'undefined' || typeof jsPDF === 'undefined') {
+        alert("Error: No se cargaron las librerías html2canvas o jspdf.");
+        return;
     }
-});
 
-// Descargar etiqueta (usando html2canvas)
-document.getElementById('descargarBtn').addEventListener('click', function() {
-    alert("Descargando etiqueta... (Aquí iría la lógica con html2canvas o similar)");
+    // Referencias a elementos del DOM
+    const descargarBtn = document.getElementById('descargarBtn');
+    const generarBtn = document.getElementById('generarBtn');
+    const etiqueta = document.getElementById('etiqueta');
+
+    // Validar elementos
+    if (!descargarBtn || !generarBtn || !etiqueta) {
+        console.error("Error: Elementos del DOM no encontrados.");
+        return;
+    }
+
+    // Actualizar vista previa
+    generarBtn.addEventListener('click', function() {
+        document.getElementById('previewNombre').textContent = document.getElementById('destinatario').value || "[Nombre]";
+        document.getElementById('previewCI').textContent = document.getElementById('ci').value || "[CI]";
+        document.getElementById('previewTelefono').textContent = document.getElementById('telefono').value || "[Teléfono]";
+        document.getElementById('previewDireccion').textContent = document.getElementById('direccion').value || "[Dirección]";
+        document.getElementById('previewDepto').textContent = document.getElementById('departamento').value || "[Depto]";
+        document.getElementById('previewAgencia').textContent = document.getElementById('agencia').value || "[Agencia]";
+    });
+
+    // Descargar PDF
+    descargarBtn.addEventListener('click', async function() {
+        try {
+            const canvas = await html2canvas(etiqueta, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: '#FFFFFF'
+            });
+
+            const pdf = new jsPDF('p', 'mm', [100, 150]); // Tamaño 10x15 cm
+            pdf.addImage(canvas, 'PNG', 0, 0, 100, 150);
+            pdf.save('etiqueta_cafini.pdf');
+        } catch (error) {
+            console.error("Error al generar PDF:", error);
+            alert("Error al descargar. Verifica la consola.");
+        }
+    });
 });
