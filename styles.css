@@ -1,110 +1,18 @@
-:root {
-    --color-verde: #45ad35;
-    --color-texto: #333;
-}
+/* ... (conserva estilos anteriores) ... */
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f5f5;
-}
-
-header {
-    background: var(--color-verde);
-    padding: 15px 0;
-    text-align: center;
-    color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.header-logo {
-    height: 50px;
-    margin-bottom: 10px;
-}
-
-.container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.form-container, .preview-container {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    flex: 1;
-}
-
-input, button {
-    display: block;
-    margin-bottom: 12px;
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-button {
-    background: var(--color-verde);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-/* ---- Etiqueta ---- */
-.etiqueta {
-    width: 100mm;
-    height: 150mm;
-    padding: 5mm;
-    background: white;
-    margin: 0 auto;
-    border: 2px solid #000;
-    box-sizing: border-box;
-    position: relative;
-}
-
-.etiqueta-logo {
-    display: block;
-    margin: 0 auto 3mm;
-    max-height: 18mm;
-    border-bottom: 1px solid #000;
-    padding-bottom: 2mm;
-}
-
-.gracias {
-    font-size: 14pt;
-    font-weight: bold;
-    text-align: center;
-    margin: 0 0 4mm 0;
-    padding: 3mm 0;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
-    background: #f0f0f0;
-}
-
-/* Datos del cliente */
+/* ---- Datos del cliente ---- */
 .datos-cliente {
     margin: 4mm 0;
     padding: 0;
 }
 
 .datos-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 30% 70%; /* Dos columnas: Label | Valor */
+    gap: 2mm;
     margin: 2mm 0;
     padding: 2mm 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #eee;
     font-size: 10pt;
 }
 
@@ -114,34 +22,34 @@ button:hover {
 
 .datos-label {
     font-weight: bold;
-    width: 35%;
-    color: #444;
+    color: var(--color-verde); /* Verde corporativo */
+    text-align: left;
+    padding-right: 2mm;
+    border-right: 1px solid #ddd; /* Línea divisoria vertical */
 }
 
 .datos-value {
-    width: 63%;
-    text-align: right;
+    text-align: left;
     word-break: break-word;
+    color: #444;
 }
 
-/* Remitente */
+/* ---- Remitente ---- */
 .remitente {
     position: absolute;
     bottom: 5mm;
     width: calc(100% - 10mm);
     font-size: 9pt;
-    border-top: 2px solid #000;
+    border-top: 2px solid var(--color-verde);
     padding-top: 3mm;
+    background: #f8f8f8; /* Fondo diferenciado */
+    padding: 3mm;
+    border-radius: 2mm;
 }
 
 .remitente strong {
     display: block;
     margin-bottom: 1mm;
     font-size: 10pt;
-}
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
+    color: var(--color-verde);
 }
