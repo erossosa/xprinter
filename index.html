@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Etiquetas - Cafini Uruguay</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="html2canvas.min.js"></script>
+    <script src="jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" alt="Logo Cafini" class="header-logo">
+        <h1>Generador de Etiquetas</h1>
+    </header>
+
+    <div class="container">
+        <!-- Formulario -->
+        <div class="form-container">
+            <h2>Datos del Envío</h2>
+            <input type="text" id="destinatario" placeholder="Nombre del cliente">
+            <input type="text" id="ci" placeholder="C.I.">
+            <input type="text" id="telefono" placeholder="Teléfono">
+            <input type="text" id="direccion" placeholder="Dirección">
+            <input type="text" id="departamento" placeholder="Departamento">
+            <input type="text" id="agencia" placeholder="Agencia">
+            <button id="generarBtn">Generar Etiqueta</button>
+        </div>
+
+        <!-- Previsualización -->
+        <div class="preview-container">
+            <h2>Vista Previa</h2>
+            <div class="etiqueta" id="etiqueta">
+                <img src="img/logo.png" alt="Logo Cafini" class="etiqueta-logo">
+                <p class="gracias">¡GRACIAS POR TU COMPRA!</p>
+                <div class="datos-cliente">
+                    <div class="datos-item">
+                        <span class="datos-label">Nombre:</span>
+                        <span class="datos-value" id="previewNombre"></span>
+                    </div>
+                    <div class="datos-item">
+                        <span class="datos-label">C.I.:</span>
+                        <span class="datos-value" id="previewCI"></span>
+                    </div>
+                    <div class="datos-item">
+                        <span class="datos-label">Teléfono:</span>
+                        <span class="datos-value" id="previewTelefono"></span>
+                    </div>
+                    <div class="datos-item">
+                        <span class="datos-label">Dirección:</span>
+                        <span class="datos-value" id="previewDireccion"></span>
+                    </div>
+                    <div class="datos-item">
+                        <span class="datos-label">Departamento:</span>
+                        <span class="datos-value" id="previewDepto"></span>
+                    </div>
+                    <div class="datos-item">
+                        <span class="datos-label">Agencia:</span>
+                        <span class="datos-value" id="previewAgencia"></span>
+                    </div>
+                </div>
+                <div class="remitente">
+                    <strong>Remitente: ABAPLAY S.A</strong>
+                    <p>Amezaga 1781, Montevideo</p>
+                    <p>Tel: 093554791 | RUT: 214931540014</p>
+                </div>
+            </div>
+            <button id="descargarBtn">Descargar PDF</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
