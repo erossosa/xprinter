@@ -1,7 +1,7 @@
 :root {
-    --color-verde: #45ad35;    /* Color corporativo */
-    --color-texto: #333;       /* Color principal de texto */
-    --color-borde: #e0e0e0;    /* Color para bordes sutiles */
+    --color-verde: #45ad35;    /* Color corporativo (solo para bordes/logo) */
+    --color-texto: #000;       /* Todo el texto en negro */
+    --color-borde: #000;       /* Bordes en negro */
 }
 
 /* Estilos Generales */
@@ -24,6 +24,7 @@ header {
 .header-logo {
     height: 50px;
     margin-bottom: 10px;
+    filter: contrast(200%) brightness(50%); /* Logo más oscuro */
 }
 
 /* Contenedor Principal */
@@ -53,6 +54,7 @@ input, button {
     border: 1px solid var(--color-borde);
     border-radius: 4px;
     font-size: 14px;
+    color: var(--color-texto); /* Texto en negro */
 }
 
 button {
@@ -75,7 +77,7 @@ button:hover {
     padding: 5mm;
     background: white;
     margin: 0 auto;
-    border: 2px solid #000;
+    border: 2px solid var(--color-borde);
     box-sizing: border-box;
     position: relative;
 }
@@ -85,8 +87,9 @@ button:hover {
     display: block;
     margin: 0 auto 3mm;
     max-height: 18mm;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--color-borde);
     padding-bottom: 2mm;
+    filter: grayscale(100%) contrast(200%); /* Logo en escala de grises */
 }
 
 /* Mensaje "Gracias" */
@@ -96,9 +99,10 @@ button:hover {
     text-align: center;
     margin: 0 0 4mm 0;
     padding: 3mm 0;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
-    background: #f0f0f0;
+    border-top: 2px solid var(--color-borde);
+    border-bottom: 2px solid var(--color-borde);
+    color: var(--color-texto); /* Texto en negro */
+    background: transparent; /* Quitamos el fondo gris */
 }
 
 /* Datos del Cliente */
@@ -115,6 +119,7 @@ button:hover {
     padding: 2mm 0;
     border-bottom: 1px solid var(--color-borde);
     font-size: 10pt;
+    color: var(--color-texto); /* Texto en negro */
 }
 
 .datos-item:last-child {
@@ -123,13 +128,13 @@ button:hover {
 
 .datos-label {
     font-weight: bold;
-    color: var(--color-verde);
+    color: var(--color-texto); /* Negro */
     text-align: left;
     padding-right: 2mm;
 }
 
 .datos-value {
-    color: #444;
+    color: var(--color-texto); /* Negro */
     word-break: break-word;
 }
 
@@ -139,17 +144,16 @@ button:hover {
     bottom: 5mm;
     width: calc(100% - 10mm);
     font-size: 9pt;
-    border-top: 2px solid var(--color-verde);
+    border-top: 2px solid var(--color-borde);
     padding-top: 3mm;
-    background: #f8f8f8;
-    border-radius: 2mm;
+    color: var(--color-texto); /* Negro */
 }
 
 .remitente strong {
     display: block;
     margin-bottom: 1mm;
     font-size: 10pt;
-    color: var(--color-verde);
+    color: var(--color-texto); /* Negro */
 }
 
 /* Responsive para Móviles */
